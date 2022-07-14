@@ -16,6 +16,6 @@
   -->
 <resources>
     <style name="Theme.Woof" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/grey_50</item>
+        <item name="android:statusBarColor">@color/purple_700</item>
     </style>
 </resources>
