@@ -1,7 +1,7 @@
 ---
-name: 'Testing for Accessibility issue template'
-about: 'Issue template for Testing for Accessibility codelab'
-title: 'Testing for Accessibility'
+name: Testing for Accessibility issue template
+about: Issue template for Testing for Accessibility codelab
+title: Testing for Accessibility
 labels: ''
 assignees: ''
 
