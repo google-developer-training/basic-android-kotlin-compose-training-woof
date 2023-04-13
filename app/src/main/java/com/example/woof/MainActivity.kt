@@ -29,6 +29,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -66,13 +67,9 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WoofApp() {
-    Scaffold(
-        // TODO - add Scaffold to starter code?
-    ) {  it ->
-        LazyColumn(contentPadding = it) {
-            items(dogs) {
-                DogItem(dog = it)
-            }
+    LazyColumn {
+        items(dogs) {
+            DogItem(dog = it, modifier = Modifier.padding(8.dp))
         }
     }
 }
@@ -88,18 +85,14 @@ fun DogItem(
     dog: Dog,
     modifier: Modifier = Modifier
 ) {
-    // TODO figure out where in codelab to add Card
-    //Card(modifier = modifier.padding(8.dp)) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp)
-        //TODO - update this in the final code
-        ) {
-            DogIcon(dog.imageResourceId)
-            DogInformation(dog.name, dog.age)
-        }
-    //}
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+    ) {
+        DogIcon(dog.imageResourceId)
+        DogInformation(dog.name, dog.age)
+    }
 }
 
 /**
