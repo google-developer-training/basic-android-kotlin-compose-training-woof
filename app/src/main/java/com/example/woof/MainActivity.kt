@@ -69,7 +69,8 @@ class MainActivity : ComponentActivity() {
 fun WoofApp() {
     LazyColumn {
         items(dogs) {
-            DogItem(dog = it, modifier = Modifier.padding(8.dp))
+            DogItem(dog = it, modifier = Modifier
+                .padding(dimensionResource(id = R.dimen.padding_small)))
         }
     }
 }
@@ -88,7 +89,7 @@ fun DogItem(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(8.dp)
+            .padding(dimensionResource(id = R.dimen.padding_small))
     ) {
         DogIcon(dog.imageResourceId)
         DogInformation(dog.name, dog.age)
