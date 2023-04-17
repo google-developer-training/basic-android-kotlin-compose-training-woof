@@ -79,7 +79,10 @@ fun WoofApp() {
     ) { it ->
         LazyColumn(contentPadding = it) {
             items(dogs) {
-                DogItem(dog = it)
+                DogItem(
+                    dog = it,
+                    modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small))
+                )
             }
         }
     }
@@ -97,8 +100,7 @@ fun DogItem(
     modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = modifier.padding(dimensionResource(id = R.dimen.padding_small)),
-        shape = MaterialTheme.shapes.medium
+        modifier = modifier
     ) {
         Row(
             modifier = Modifier
