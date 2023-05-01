@@ -8,9 +8,8 @@ experience for the user.
 Introduction
 ------------
 
-This is the final code for the Material Design codelab. This project is an opportunity for you
-to learn Material Design and reinforce the concepts you've learned so far in Android Basics
-with Compose.
+This is the final code for the Material Design codelab. This project is an opportunity for you to learn
+Material3 and reinforce the concepts you've learned so far in Android Basics with Compose.
 
 Pre-requisites
 --------------
