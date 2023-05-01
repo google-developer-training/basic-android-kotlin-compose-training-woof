@@ -9,7 +9,7 @@ Introduction
 ------------
 
 This is the starter code for the Woof app project. This project is an opportunity for you to learn
-Material Design and reinforce the concepts you've learned so far in Android Basics
+Material3 and reinforce the concepts you've learned so far in Android Basics
 with Compose.
 
 Pre-requisites
