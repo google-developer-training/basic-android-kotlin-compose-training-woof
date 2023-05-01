@@ -1,7 +1,7 @@
 ---
-name: Material theming issue template
-about: Issue template for Material Theming with Jetpack Compose codelab
-title: Material Theming with Jetpack Compose
+name: Simple Animations issue template
+about: 'Issue template for Simple Animation with Jetpack Compose '
+title: 'Simple Animation with Jetpack Compose '
 labels: ''
 assignees: ''
 
