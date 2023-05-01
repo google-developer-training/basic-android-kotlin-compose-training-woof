@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  */
 package com.example.woof.ui.theme
 
-import androidx.compose.material.Typography
+import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -31,24 +31,24 @@ val Montserrat = FontFamily(
     Font(R.font.montserrat_regular),
     Font(R.font.montserrat_bold, FontWeight.Bold)
 )
-// Set of Material typography styles to start with
+
 val Typography = Typography(
-    h1 = TextStyle(
+    displayLarge = TextStyle(
         fontFamily = AbrilFatface,
         fontWeight = FontWeight.Normal,
-        fontSize = 30.sp
+        fontSize = 35.sp
     ),
-    h2 = TextStyle(
+    displayMedium = TextStyle(
         fontFamily = Montserrat,
         fontWeight = FontWeight.Bold,
         fontSize = 20.sp
     ),
-    h3 = TextStyle(
+    labelSmall = TextStyle(
         fontFamily = Montserrat,
         fontWeight = FontWeight.Bold,
         fontSize = 14.sp
     ),
-    body1 = TextStyle(
+    bodyLarge = TextStyle(
         fontFamily = Montserrat,
         fontWeight = FontWeight.Normal,
         fontSize = 14.sp
