@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.example.woof
 
 import android.os.Bundle
@@ -78,7 +79,7 @@ fun WoofApp() {
             items(dogs) {
                 DogItem(
                     dog = it,
-                    modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small))
+                    modifier = Modifier.padding(dimensionResource(R.dimen.padding_small))
                 )
             }
         }
@@ -102,7 +103,7 @@ fun DogItem(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(dimensionResource(id = R.dimen.padding_small))
+                .padding(dimensionResource(R.dimen.padding_small))
         ) {
             DogIcon(dog.imageResourceId)
             DogInformation(dog.name, dog.age)
@@ -124,8 +125,8 @@ fun WoofTopAppBar(modifier: Modifier = Modifier) {
             ) {
                 Image(
                     modifier = Modifier
-                        .size(dimensionResource(id = R.dimen.image_size))
-                        .padding(dimensionResource(id = R.dimen.padding_small)),
+                        .size(dimensionResource(R.dimen.image_size))
+                        .padding(dimensionResource(R.dimen.padding_small)),
                     painter = painterResource(R.drawable.ic_woof_logo),
 
                     // Content Description is not needed here - image is decorative, and setting a
@@ -142,7 +143,6 @@ fun WoofTopAppBar(modifier: Modifier = Modifier) {
         },
         modifier = modifier
     )
-
 }
 
 /**
@@ -158,8 +158,8 @@ fun DogIcon(
 ) {
     Image(
         modifier = modifier
-            .size(dimensionResource(id = R.dimen.image_size))
-            .padding(dimensionResource(id = R.dimen.padding_small))
+            .size(dimensionResource(R.dimen.image_size))
+            .padding(dimensionResource(R.dimen.padding_small))
             .clip(MaterialTheme.shapes.small),
         contentScale = ContentScale.Crop,
         painter = painterResource(dogIcon),
@@ -188,7 +188,7 @@ fun DogInformation(
         Text(
             text = stringResource(dogName),
             style = MaterialTheme.typography.displayMedium,
-            modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_small))
+            modifier = Modifier.padding(top = dimensionResource(R.dimen.padding_small))
         )
         Text(
             text = stringResource(R.string.years_old, dogAge),
