@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.example.woof
 
 import android.os.Bundle
@@ -83,7 +84,7 @@ fun DogItem(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(dimensionResource(id = R.dimen.padding_small))
+            .padding(dimensionResource(R.dimen.padding_small))
     ) {
         DogIcon(dog.imageResourceId)
         DogInformation(dog.name, dog.age)
@@ -103,8 +104,8 @@ fun DogIcon(
 ) {
     Image(
         modifier = modifier
-            .size(dimensionResource(id = R.dimen.image_size))
-            .padding(dimensionResource(id = R.dimen.padding_small)),
+            .size(dimensionResource(R.dimen.image_size))
+            .padding(dimensionResource(R.dimen.padding_small)),
         painter = painterResource(dogIcon),
 
         // Content Description is not needed here - image is decorative, and setting a null content
@@ -130,7 +131,7 @@ fun DogInformation(
     Column(modifier = modifier) {
         Text(
             text = stringResource(dogName),
-            modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_small))
+            modifier = Modifier.padding(top = dimensionResource(R.dimen.padding_small))
         )
         Text(
             text = stringResource(R.string.years_old, dogAge),
