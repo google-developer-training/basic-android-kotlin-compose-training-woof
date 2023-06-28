@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.Card
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -124,23 +125,25 @@ fun DogItem(
                 DogIcon(dog.imageResourceId)
                 DogInformation(dog.name, dog.age)
                 Spacer(modifier = modifier.weight(1f))
-                DogItemButton(expanded = expanded, onClick = { /*TODO*/ })
+                DogItemButton(expanded = expanded, onClick = { expanded = !expanded })
             }
-
-            DogHobby(dogHobby = dog.hobbies,
-                modifier = Modifier.padding(
-                    start = dimensionResource(id = R.dimen.padding_medium),
-                    top = dimensionResource(id = R.dimen.padding_small),
-                    end = dimensionResource(id = R.dimen.padding_medium),
-                    bottom = dimensionResource(id = R.dimen.padding_medium),
+            if (expanded) {
+                DogHobby(
+                    dogHobby = dog.hobbies,
+                    modifier = Modifier.padding(
+                        start = dimensionResource(id = R.dimen.padding_medium),
+                        top = dimensionResource(id = R.dimen.padding_small),
+                        end = dimensionResource(id = R.dimen.padding_medium),
+                        bottom = dimensionResource(id = R.dimen.padding_medium),
+                    )
                 )
-                )
+            }
         }
     }
 }
 
 @Composable
-fun DogItemButton(
+private fun DogItemButton(
     expanded:Boolean,
     onClick:() ->Unit,
     modifier: Modifier = Modifier
@@ -150,7 +153,7 @@ fun DogItemButton(
         modifier = modifier
         ) {
             Icon(
-                imageVector = Icons.Filled.ExpandMore,
+                imageVector = if(expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
                 contentDescription = stringResource(id = R.string.expand_button_content_description),
                 tint = MaterialTheme.colorScheme.secondary
             )
