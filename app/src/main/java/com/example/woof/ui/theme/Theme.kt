@@ -18,7 +18,6 @@ package com.example.woof.ui.theme
 import android.app.Activity
 import android.os.Build
 import android.view.View
-import android.view.WindowManager
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -64,7 +63,6 @@ private val LightColors = lightColorScheme(
     outlineVariant = md_theme_light_outlineVariant,
     scrim = md_theme_light_scrim,
 )
-
 
 private val DarkColors = darkColorScheme(
     primary = md_theme_dark_primary,
@@ -137,22 +135,13 @@ private fun setUpEdgeToEdge(view: View, darkTheme: Boolean) {
     val window = (view.context as Activity).window
     WindowCompat.setDecorFitsSystemWindows(window, false)
     window.statusBarColor = Color.Transparent.toArgb()
-    if (Build.VERSION.SDK_INT >= 29) {
-        window.statusBarColor = Color.Transparent.toArgb()
-        window.navigationBarColor = Color.Transparent.toArgb()
-    } else if (Build.VERSION.SDK_INT >= 26) {
-        window.statusBarColor = Color.Transparent.toArgb()
-        window.navigationBarColor = Color(0xFF, 0xFF, 0xFF, 0x63).toArgb()
-    } else if (Build.VERSION.SDK_INT >= 23) {
-        window.statusBarColor = Color.Transparent.toArgb()
-        @Suppress("DEPRECATION")
-        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
-    } else {
-        @Suppress("DEPRECATION")
-        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        @Suppress("DEPRECATION")
-        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
+    val navigationBarColor = when {
+        Build.VERSION.SDK_INT >= 29 -> Color.Transparent.toArgb()
+        Build.VERSION.SDK_INT >= 26 -> Color(0xFF, 0xFF, 0xFF, 0x63).toArgb()
+        // Min sdk version for this app is 24, this block is for SDK versions 24 and 25
+        else -> Color(0x00,0x00, 0x00, 0x50).toArgb()
     }
+    window.navigationBarColor = navigationBarColor
     val controller = WindowCompat.getInsetsController(window, view)
     controller.isAppearanceLightStatusBars = !darkTheme
     controller.isAppearanceLightNavigationBars = !darkTheme
