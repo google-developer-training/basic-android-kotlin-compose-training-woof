@@ -32,6 +32,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -116,6 +117,7 @@ fun DogItem(
  *
  * @param modifier modifiers to set to this composable
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WoofTopAppBar(modifier: Modifier = Modifier) {
     CenterAlignedTopAppBar(
