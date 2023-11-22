@@ -111,11 +111,19 @@ fun DogItem(
     modifier: Modifier = Modifier
 ) {
     var expanded by remember { mutableStateOf(false) }
+    // 7. (Optional) Experiment with other animations
+//    val color by animateColorAsState(
+//        targetValue = if (expanded) MaterialTheme.colorScheme.tertiaryContainer
+//        else MaterialTheme.colorScheme.primaryContainer,
+//        label = "Color State"
+//    )
     Card(
         modifier = modifier
     ) {
         Column(
             modifier = Modifier
+                // 7. (Optional) Experiment with other animations
+//                .background(color = color)
                 .animateContentSize(
                     animationSpec = spring(
                         dampingRatio = Spring.DampingRatioNoBouncy,
