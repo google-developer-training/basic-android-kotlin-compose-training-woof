@@ -21,6 +21,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -38,6 +39,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -111,8 +113,14 @@ fun DogItem(
     modifier: Modifier = Modifier
 ) {
     var expanded by remember { mutableStateOf(false) }
+    val color by animateColorAsState(
+        targetValue = if (expanded) MaterialTheme.colorScheme.tertiaryContainer else MaterialTheme.colorScheme.primaryContainer
+    )
     Card(
-        modifier = modifier
+        modifier = modifier,
+        colors = CardDefaults.cardColors(
+            containerColor = color
+        )
     ) {
         Column(
             modifier = Modifier
@@ -122,6 +130,13 @@ fun DogItem(
                         stiffness = Spring.StiffnessMedium
                     )
                 )
+//                .background(color = color)
+//            7. (Optional) Experiment with other animations
+//              This is a case where placing color in the composable column causes the parent
+//              card color to appear when the expanded variable is false and
+//              the Dog Hobby composable disappears leaving a colored background. So to solve it,
+//              put the animated color on the container color card.
+
         ) {
             Row(
                 modifier = Modifier
